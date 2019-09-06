@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *{
+                margin : 0px;
+                padding : 0px
+            }
+            h1{
+                margin: 10% 37%;
+            }
+            .container{
+                margin: 80px auto;
+                width: 970px;
+                padding-left: 60px;
+            }
+            .squares{
+                height: 250px;
+                width: 250px;
+                margin: 8% 2%;
+                display: inline-block;
+                vertical-align: top;
+                background-color:rgb(150, 196, 211)
+            }
+        </style>
+    </head>
+    <body>
+        <div class='container'>
+            <h1>Welcome!</h1>
+            {%if display_times is not defined%}
+                <div class='squares'>
+                </div>
+                <div class='squares'>
+                </div>
+                <div class='squares'>
+                </div>
+            {% endif %}
+            {% if display_times is defined and square_color is not defined%}
+                {%for x in range(display_times)%}
+                    <div class='squares'>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% if display_times is defined and square_color is defined %}
+                {% for i in range (display_times) %}
+                    <div class='squares' style= 'background-color: {{square_color}}'>   
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </body>
+</html>
